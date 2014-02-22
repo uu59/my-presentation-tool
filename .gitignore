@@ -1,0 +1,3 @@
+/bower_components/
+/src/texts/*
+!/src/texts/test.haml

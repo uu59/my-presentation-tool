@@ -1,0 +1,76 @@
+!!!html5
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title= @title
+    %script{:src => "/assets/bespoke.js"}
+    %script{:src => "/assets/bespoke-keys.js"}
+    %script{:src => "/assets/bespoke-hash.js"}
+    %script{:src => "/assets/bespoke-state.js"}
+    %script{:src => "/assets/bespoke-scale.js"}
+    %script{:src => "/assets/bespoke-fx.js"}
+    %script{:src => "/assets/bespoke-progress.js"}
+    %script{:src => "/assets/bespoke-hash.js"}
+    %script{:src => "/assets/modernizr.custom.js"}
+    %link{:href => "/assets/main.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection"}
+    %link{:href => "/assets/fx.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection"}
+    %link{:href => "/assets/animations.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection"}
+    %link{:href => "/assets/presentation.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection"}
+    %link{:href => "/assets/tango.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection"}
+  %body
+    = yield
+    #navigation
+      %span.prev ←
+      %span.next →
+
+  :javascript
+    document.querySelector('#navigation').addEventListener('click', function(ev) {
+      switch(ev.target.className){
+        case "prev":
+          deck.prev();
+          break;
+        case "next":
+          deck.next();
+          break;
+      }
+    }, false);
+
+    deck.slides.forEach(function(slide){
+      var spacer = document.createElement('div');
+      spacer.classList.add('slide-container');
+      spacer.innerHTML = slide.innerHTML;
+      slide.innerHTML = "";
+      slide.appendChild(spacer);
+    });
+    var currentSlide = deck.slides[0];
+    var maxFontSize = document.defaultView.getComputedStyle(document.body).fontSize;
+
+    deck.on('activate', function(ev){
+      currentSlide = ev.slide;
+      adjustHeight(ev.slide);
+    });
+    window.addEventListener('resize', function resizeHandler(){
+      adjustHeight(currentSlide);
+    }, false);
+
+    function adjustHeight(slide) {
+      var container = slide.parentNode;
+      var fontSize = parseInt(maxFontSize, 10);
+      slide.style.fontSize = maxFontSize;
+      while(fontSize > 30 && container.scrollHeight < slide.scrollHeight) {
+        slide.style.fontSize = (--fontSize) + "px";
+      }
+    }
+
+  %noscript
+    %style{:type => "text/css"}
+      :plain
+        body { overflow: visible; }
+        section {
+          display: block;
+          border-bottom: 2px solid #000;
+          padding: 3em;
+        }
+        #navigation {
+          display: none;
+        }

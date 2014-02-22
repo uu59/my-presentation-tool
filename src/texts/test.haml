@@ -1,0 +1,51 @@
+%article
+  %section
+    foo
+  %section
+    %p Slide 3
+    %p あいおうぎおあ３
+    %p てｓｔ
+  %section
+    %p いうが３
+  %section
+    ぎあう
+  %section
+    :ruby
+      code = highlight("ruby", <<-CODE)
+          puts :foo
+          p :bar
+          p :hogea
+          puts <<-a
+          http://google.com/foooooooooooooooooooooooooooooooooooooo
+          a
+      CODE
+    ~ code
+  %section
+    ooo
+  %section
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p ぎあう
+    %p last
+
+:javascript
+  deck = bespoke.from('article', {
+    keys: true,
+    fx: true,
+    // scale: true, // なんか動いてない？
+    // progress: true,
+    state: true,
+    hash: true
+  });

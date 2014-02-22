@@ -1,0 +1,56 @@
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+body {
+  font-family: sans-serif !important;
+  font-size: 42pt;
+  background: #fef url(/assets/lightpaperfibers.png) repeat;
+  color: #000;
+}
+
+section {
+  text-align: center;
+
+  .slide-container {
+    @extend %vertical-align;
+  }
+
+  p {
+    margin: 0.5ex 0;
+    line-height: 1.1;
+  }
+
+  pre {
+    text-align: left;
+  }
+}
+
+
+.bespoke-slide {
+}
+
+.fx-transitioning-in {
+}
+.fx-transitioning-out {
+  opacity: 0.1;
+}
+
+
+#navigation {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+
+  .prev, .next {
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
