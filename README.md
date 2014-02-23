@@ -1,6 +1,6 @@
 # Usage
 
-    $ ./bower.sh
+    $ bower install
     $ rackup
 
 put `src/texts/foo.haml`, visit `localhost:9292/foo` to get rendered presentation HTML. And `localhost:9292/foo/build` returns single HTML file with Data URL.

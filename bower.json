@@ -1,0 +1,22 @@
+{
+  "name": "presentation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/uu59/my-presentation-tool",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bespoke-fx": "*",
+    "bespoke-hash": "~0.1.2",
+    "bespoke-keys": "~0.1.0",
+    "bespoke-progress": "~0.1.0",
+    "bespoke-scale": "~0.2.0",
+    "bespoke-state": "~0.2.2",
+    "bespoke.js": "0.4.0"
+  }
+}
